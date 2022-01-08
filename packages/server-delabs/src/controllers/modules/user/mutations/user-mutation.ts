@@ -1,7 +1,7 @@
 import { DelabsMutation } from '@delabs/graphql';
 import { UserService } from '@delabs/service-user';
 import { Resolver, Args } from '@nestjs/graphql';
-import { LoginInputType, UserType } from '../../../types';
+import { LoginInputType, UserType } from '../../../types/user';
 
 @Resolver(() => UserType)
 export class UserMutation {
