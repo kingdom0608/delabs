@@ -20,7 +20,6 @@ export function DelabsQuery(
 
   return (target, key?: string, descriptor?: any) => {
     const type = 'Query';
-    const eventType = 'GRAPHQL:QUERY';
 
     /** GraphQl 문서 생성을 위한 데이터 추가 */
     DocumentBuilder.addData({

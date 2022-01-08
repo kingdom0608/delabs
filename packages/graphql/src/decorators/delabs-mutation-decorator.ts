@@ -2,6 +2,7 @@ import { Mutation as nestMutationDecorator } from '@nestjs/graphql';
 import { ReturnTypeFunc } from '@nestjs/graphql';
 import { DocumentBuilder } from '../builders';
 import { DelabsGqlType, DelabsMutationOptions } from '../interfaces';
+import { authDecorator } from './auth-decorator';
 /**
  * DelabsMutation 데코레이터
  * @param nameOrType
@@ -28,6 +29,11 @@ export function DelabsMutation(
       target
     });
     Reflect.defineMetadata('delabsGql', options, target);
+
+    /** 인증 가드 설정 */
+    if (options.auth && options.auth.isLogin) {
+      authDecorator(type, options, target, key, descriptor);
+    }
 
     /** nest/graphql @Mutation 데코레이터에 추가 */
     nestMutationDecorator(nameOrType, options)(target, key, descriptor);

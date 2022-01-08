@@ -2,6 +2,7 @@ import { Subscription as nestSubscriptionDecorator } from '@nestjs/graphql';
 import { ReturnTypeFunc } from '@nestjs/graphql';
 import { DocumentBuilder } from '../builders';
 import { DelabsSubscriptionOptions } from '../interfaces';
+import { authDecorator } from './auth-decorator';
 
 /**
  * DelabsSubscription 데코레이터
@@ -27,6 +28,11 @@ export function DelabsSubscription(
       target
     });
     Reflect.defineMetadata('delabsGql', options, target);
+
+    /** 인증 가드 설정 */
+    if (options.auth && options.auth.isLogin) {
+      authDecorator(type, options, target, key, descriptor);
+    }
 
     /** nest/graphql @Subscription 데코레이터에 추가 */
     nestSubscriptionDecorator(nameOrType, options)(target, key, descriptor);
