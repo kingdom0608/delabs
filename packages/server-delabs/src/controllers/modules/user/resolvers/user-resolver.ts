@@ -2,13 +2,13 @@ import { DelabsQuery, PageQuery } from '@delabs/graphql';
 import { FilterToQueryPageQuery } from '@delabs/utils';
 import { UserService } from '@delabs/service-user';
 import { Args, Resolver, ID } from '@nestjs/graphql';
-import { UserOutputType } from '../../types';
+import { UserType } from '../../../types';
 
-@Resolver(UserOutputType)
+@Resolver(UserType)
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
-  @DelabsQuery(() => [UserOutputType], {
+  @DelabsQuery(() => [UserType], {
     nullable: true,
     description: '유저 리스트 조회',
     contributors: ['jade'],
@@ -24,7 +24,7 @@ export class UserResolver {
     return this.userService.listUser(authFilter, pageQuery as FilterToQueryPageQuery);
   }
 
-  @DelabsQuery(() => UserOutputType, {
+  @DelabsQuery(() => UserType, {
     description: '유저 조회',
     contributors: ['jade'],
     lastUpdate: '2021.12.30',

@@ -1,24 +1,23 @@
 import { DelabsMutation } from '@delabs/graphql';
 import { UserService } from '@delabs/service-user';
 import { Resolver, Args } from '@nestjs/graphql';
-import { UserOutputType } from '../../../types';
+import { LoginInputType, UserType } from '../../../types';
 
-@Resolver(() => UserOutputType)
+@Resolver(() => UserType)
 export class UserMutation {
   constructor(private readonly userService: UserService) {}
 
   @DelabsMutation(() => String, {
-    description: '유저 로그인',
+    description: '로그인',
     contributors: ['jade'],
     lastUpdate: '2021.12.21'
   })
-  async loginUser(
-    @Args({ name: 'id', type: () => String }) id: string,
-    @Args({ name: 'password', type: () => String }) password: string
+  async login(
+    @Args('loginInputData', {
+      description: '로그인 데이터'
+    })
+    loginInputData: LoginInputType
   ): Promise<string> {
-    return await this.userService.signInUser({
-      id: id,
-      password: password
-    });
+    return await this.userService.loginUser(loginInputData);
   }
 }

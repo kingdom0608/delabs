@@ -96,7 +96,7 @@ export class UserService {
    * 유저 로그인
    * @param userData
    */
-  async signInUser(userData: ISignInUser) {
+  async loginUser(userData: ISignInUser) {
     const user = await this.getUserById(userData.id);
 
     if (user.password === this.encryption.createHash(userData.password)) {

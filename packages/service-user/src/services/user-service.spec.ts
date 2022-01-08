@@ -28,7 +28,7 @@ describe('userService', () => {
   });
 
   it('signInUser', async () => {
-    const result = await userService.signInUser({
+    const result = await userService.loginUser({
       id: createdUser.id,
       password: 'testPassword'
     });
