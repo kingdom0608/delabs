@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { GraphQLModule, GqlModuleOptions } from '@nestjs/graphql';
 import { DocumentBuilder } from './builders';
 import { GraphqlGuard } from './guards';
+import { ComplexityPlugin } from './plugins';
 import { FilterScalar } from './scalars';
 import { PageQueryOrderBy, PageQueryPagination } from './types';
 
@@ -30,7 +31,13 @@ const gqlModuleOptions: GqlModuleOptions = {
 @Global()
 @Module({
   imports: [GraphQLModule.forRoot(gqlModuleOptions), GraphqlGuard],
-  providers: [DocumentBuilder, FilterScalar, PageQueryPagination, PageQueryOrderBy],
+  providers: [
+    DocumentBuilder,
+    ComplexityPlugin,
+    FilterScalar,
+    PageQueryPagination,
+    PageQueryOrderBy
+  ],
   exports: [DocumentBuilder],
   controllers: []
 })

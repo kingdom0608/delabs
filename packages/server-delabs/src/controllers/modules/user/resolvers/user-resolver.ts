@@ -1,7 +1,7 @@
 import { CurrentUser, DelabsQuery, PageQuery } from '@delabs/graphql';
 import { FilterToQueryPageQuery } from '@delabs/utils';
 import { UserService } from '@delabs/service-user';
-import { Args, Resolver, ID } from '@nestjs/graphql';
+import { Args, Resolver } from '@nestjs/graphql';
 import { UserType } from '../../../types';
 
 @Resolver(UserType)
