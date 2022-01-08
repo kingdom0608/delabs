@@ -1,0 +1,14 @@
+*.ts
+*.md
+*.txt
+.gitattributes
+bower.json
+tsconfig.json
+tsconfig.tsbuildinfo
+workspace.json
+LICENSE
+LICENSE.txt
+env
+db
+ecs-params.yml
+docker-compose.yml

@@ -1,0 +1,21 @@
+# Compiled Output
+/dist
+
+# Dependencies
+/node_modules
+
+# Misc
+/coverage
+
+# System Files
+.DS_Store
+
+# 자동생성 되는 schema.gql
+schema.gql
+
+*.js
+*.js.map
+*.d.ts
+
+env/*.env
+!env/sample.env

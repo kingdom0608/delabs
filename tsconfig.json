@@ -1,0 +1,25 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "importHelpers": true,
+    "preserveSymlinks": false,
+    "lib": ["dom", "es2019"],
+    "target": "es2019",
+    "module": "commonjs",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "exclude": ["dist", "node_modules", "**/*.js"]
+}

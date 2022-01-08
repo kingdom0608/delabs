@@ -1,0 +1,15 @@
+*.md
+lerna.*
+
+cdk.*
+
+dist
+node_modules
+deprecated
+env
+bin
+generated
+.idea
+.em
+bootstrap-packages
+coverage
