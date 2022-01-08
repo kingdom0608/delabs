@@ -1,4 +1,4 @@
-import { DelabsQuery, PageQuery } from '@delabs/graphql';
+import { CurrentUser, DelabsQuery, PageQuery } from '@delabs/graphql';
 import { FilterToQueryPageQuery } from '@delabs/utils';
 import { UserService } from '@delabs/service-user';
 import { Args, Resolver, ID } from '@nestjs/graphql';
@@ -32,7 +32,7 @@ export class UserResolver {
       isLogin: true
     }
   })
-  async user(@Args({ name: 'index', type: () => ID }) index: number) {
-    return this.userService.getUserByIndex(index);
+  async user(@CurrentUser() currentUser) {
+    return this.userService.getUserByIndex(currentUser.index);
   }
 }
